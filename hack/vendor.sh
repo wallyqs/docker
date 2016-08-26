@@ -123,6 +123,10 @@ clone git github.com/fluent/fluent-logger-golang v1.2.1
 clone git github.com/philhofer/fwd 899e4efba8eaa1fea74175308f3fae18ff3319fa
 clone git github.com/tinylib/msgp 75ee40d2601edf122ef667e2a07d600d4c44490c
 
+# nats deps
+clone git github.com/nats-io/nats v1.2.0
+clone git github.com/nats-io/nuid v1.0.0
+
 # fsnotify
 clone git gopkg.in/fsnotify.v1 v1.2.11
 
