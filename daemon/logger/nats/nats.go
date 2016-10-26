@@ -62,6 +62,17 @@ func New(ctx logger.Context) (logger.Logger, error) {
 		opts.MaxReconnect = -1
 	}
 
+	// Specify authentication credentials if required
+	if v, ok := ctx.Config["nats-user"]; ok {
+		opts.User = v
+	}
+	if v, ok := ctx.Config["nats-pass"]; ok {
+		opts.Password = v
+	}
+	if v, ok := ctx.Config["nats-token"]; ok {
+		opts.Token = v
+	}
+
 	// Check whether we need customize a secure connection with TLS
 	var requiresTLS bool
 	for _, sopt := range secureOpts {
@@ -170,6 +181,9 @@ func ValidateLogOpt(cfg map[string]string) error {
 		case "nats-max-reconnect":
 		case "nats-servers":
 		case "nats-subject":
+		case "nats-user":
+		case "nats-pass":
+		case "nats-token":
 		case "nats-tls-ca-cert":
 		case "nats-tls-cert":
 		case "nats-tls-key":
